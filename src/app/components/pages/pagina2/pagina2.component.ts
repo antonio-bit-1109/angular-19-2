@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-pagina2',
   imports: [],
   templateUrl: './pagina2.component.html',
-  styleUrl: './pagina2.component.scss'
+  styleUrl: './pagina2.component.scss',
 })
-export class Pagina2Component {
-
-}
+export default class Pagina2Component {}

@@ -65,7 +65,7 @@
 
   <div>
 
-    @if (snack().length) {
+    @if (snack()?.length) {
     <ul>
       @for (s of snack(); track $index) {
 
@@ -81,4 +81,12 @@
 </div>
 </div>
 
-<router-outlet />
+<div class="wrapper-pulsantiera">
+  PULSANTIERA:
+  <button class="btn btn-primary" routerLink="pagina1">pagina1</button>
+  <button class="btn btn-primary" routerLink="pagina2">pagina2</button>
+  <button class="btn btn-primary" routerLink="pagina3">pagina3</button>
+
+</div>
+
+<router-outlet></router-outlet>

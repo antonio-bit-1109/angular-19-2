@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ChildComponent } from './components/child/child.component';
-import { single } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -15,6 +15,7 @@ import { single } from 'rxjs';
     FormsModule,
     ButtonModule,
     ChildComponent,
+    RouterLink,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
