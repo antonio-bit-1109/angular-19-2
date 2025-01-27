@@ -1,0 +1,22 @@
+<p> valore del padre è : {{valDalPadre ? 'vero' : 'falso'}}</p>
+<!-- <button class="btn btn-primary" (click)="valInUscita.emit(!valDalPadre) ">
+    cambia valore
+</button> -->
+<button class="btn btn-primary" (click)="valore.set(!valore())">
+    cambia valore
+</button>
+
+
+<ul>
+
+    @for (allievo of allievi(); track $index) {
+    <li>{{allievo}}</li>
+    }
+
+    @empty {
+    <li>non ci sono allievi.</li>
+    }
+</ul>
+
+
+<button (click)="inviaSnack.emit(snacks())" class="btn btn-primary"> invia snacks</button>

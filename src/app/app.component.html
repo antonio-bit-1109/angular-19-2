@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
+    <div class="col-6">
 
 
       @if (allievi().length <= 0) { <div> Nessun allievo da mostrare. </div>
@@ -23,7 +23,61 @@
     }
 
 
+    <div class="col-6">
+      <div>
+        <p class="d-inline mx-2.5">
+          Scrivi un colore:</p> <input type="text" pInputText [(ngModel)]="colore" />
+        <p-button label="Aggiungi" (click)="cambiaColore()" class=" mx-1" />
+      </div>
+    </div>
+
+    <div>
+      @switch (coloreSelezionato()) {
+
+      @case ('red') {
+      <h1 [style.color]="coloreSelezionato()">{{coloreSelezionato()}} </h1>
+      }
+
+      @case ('green') {
+      <h1 [style.color]="coloreSelezionato()">{{coloreSelezionato()}} </h1>
+      }
+
+      @case ('blue') {
+      <h1 [style.color]="coloreSelezionato()">{{coloreSelezionato()}} </h1>
+      }
+
+      @default {
+      <h1 [style.color]="'black'">{{coloreSelezionato()}} </h1>
+      }
+      }
+    </div>
   </div>
+
+  <div class="row">
+
+    <!-- NUOVO MODO PER FARE INPUTOUTPUT[(valore)]="myBoolean" -->
+    <!-- MODO VECCHIO PER FARE INPUT-OUTPUT TRAMITE EVENT EMITTER (valInUscita)="valoriInarrivoFiglio($event)"
+     [valDalPadre]="myBoolean" -->
+    <app-child (inviaSnack)="valoridalFiglio($event)" (allievi)="allievi()" [(valore)]="myBoolean"
+      (valInUscita)="valoriInarrivoFiglio($event)" [valDalPadre]="myBoolean"></app-child>
+  </div>
+
+
+  <div>
+
+    @if (snack().length) {
+    <ul>
+      @for (s of snack(); track $index) {
+
+      <li>{{s}}</li>
+
+      } @empty {
+      <li>no snacks.</li>
+      }
+    </ul>
+    }
+  </div>
+
 </div>
 </div>
 

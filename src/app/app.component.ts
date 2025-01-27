@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { ChildComponent } from './components/child/child.component';
+import { single } from 'rxjs';
 @Component({
   selector: 'app-root',
   imports: [
@@ -12,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     FormsModule,
     ButtonModule,
+    ChildComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -19,7 +22,12 @@ import { ButtonModule } from 'primeng/button';
 export class AppComponent {
   public nome = '';
 
+  public colore = signal('');
+  public coloreSelezionato = signal('');
+  public snack = signal(null);
   public allievi = signal<string[]>(['antonio']);
+
+  public myBoolean = false;
 
   public aggiungiAllievo(allievo: string) {
     this.allievi.update((prev) => [...prev, allievo]);
@@ -31,5 +39,17 @@ export class AppComponent {
       prevArr.splice(i, 1);
       return prevArr;
     });
+  }
+
+  public cambiaColore() {
+    this.coloreSelezionato.set(this.colore());
+  }
+
+  public valoriInarrivoFiglio(event: any) {
+    this.myBoolean = event;
+  }
+
+  public valoridalFiglio(event) {
+    this.snack.set(event);
   }
 }
